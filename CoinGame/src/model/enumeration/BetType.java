@@ -19,8 +19,7 @@ public enum BetType
          {
             // TODO implementation
          }
-      },
-      
+      };
       // TODO finish this class with other enum constants
    
       /**
