@@ -75,12 +75,12 @@ public class SimplePlayer implements Player
 		// TODO Auto-generated method stub
 		return bet;
 	}
-
+	
 	@Override
 	public void setBetType(BetType betType) //Sets BetType
 	{
 		this.betType = betType;
-		// TODO Auto-generated method stub
+		
 
 	}
 
