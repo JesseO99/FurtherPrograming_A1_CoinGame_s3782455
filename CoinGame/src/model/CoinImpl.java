@@ -5,6 +5,7 @@ package model;
 
 import model.enumeration.CoinFace;
 import model.interfaces.Coin;
+import java.lang.Math;
 
 /**
  * @author Jesse Osrecak
@@ -12,10 +13,18 @@ import model.interfaces.Coin;
  */
 public class CoinImpl implements Coin 
 {
-	private CoinFace coinFace = CoinFace.HEADS;
+	private CoinFace coinFace;
 	private int coinNumber;
 	public CoinImpl(int coinNumber)
 	{
+		if(Math.random() > 0.5)
+		{
+			coinFace = coinFace.HEADS;
+		}
+		else
+		{
+			coinFace = coinFace.TAILS;
+		}
 		this.coinNumber = coinNumber;
 	}
 	@Override
