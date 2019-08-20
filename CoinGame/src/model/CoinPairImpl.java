@@ -65,7 +65,7 @@ public class CoinPairImpl implements CoinPair
 	@Override
 	public int hashCode()
 	{
-		return 0;//TODO
+		return coin1.hashCode() + coin2.hashCode();
 	}
 
 }

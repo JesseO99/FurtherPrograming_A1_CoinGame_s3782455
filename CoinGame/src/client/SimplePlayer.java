@@ -95,7 +95,7 @@ public class SimplePlayer implements Player
 	public void resetBet() //Sets bet = 0 and betType to no bet
 	{
 		bet = 0;
-		//betType = NO_BET;
+		betType = BetType.NO_BET;
 		// TODO Auto-generated method stub
 		//Code Still needs to set betType to NO_BET
 	}

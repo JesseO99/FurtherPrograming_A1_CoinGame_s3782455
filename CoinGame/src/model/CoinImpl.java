@@ -70,7 +70,7 @@ public class CoinImpl implements Coin
 	public int hashCode()
 	{
 		//TODO no method implementation
-		return 0;
+		return coinFace.hashCode();
 	}
 	
 	@Override

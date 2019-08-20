@@ -19,7 +19,44 @@ public enum BetType
          {
             // TODO implementation
          }
+      },
+      COIN2
+      {
+
+		@Override
+		public void applyWinLoss(Player player, CoinPair spinnerResult) 
+		{
+			// TODO Auto-generated method stub
+			
+		}
+    	  
+      },
+      BOTH
+      {
+
+		@Override
+		public void applyWinLoss(Player player, CoinPair spinnerResult) 
+		{
+			// TODO Auto-generated method stub
+			
+		}
+    	  
+    	  
+      },
+      NO_BET
+      {
+
+		@Override
+		public void applyWinLoss(Player player, CoinPair spinnerResult) 
+		{
+			// TODO Auto-generated method stub
+			
+		}
+    	  
       };
+	
+	
+
       // TODO finish this class with other enum constants
    
       /**
@@ -29,5 +66,7 @@ public enum BetType
        * @param player - the player to apply the win/loss points balance adjustment
        * @param spinnerResult - the CoinPair result of the spinner to compare to
        */
+	
+	  
       public abstract void applyWinLoss(Player player, CoinPair spinnerResult);
 }
