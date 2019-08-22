@@ -1,4 +1,4 @@
-package client;
+package model;
 
 import model.enumeration.BetType;
 import model.interfaces.CoinPair;

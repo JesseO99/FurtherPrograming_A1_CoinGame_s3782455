@@ -31,7 +31,7 @@ public interface GameEngine
     * 
     * @param player 
     *             the Player to spin for
-    * @param initialDelay1
+    * @param initialDelay1 
     *            the starting delay in ms between updates for coin 1
     *            (reflects the speed at which this coin is spinning in the air)
     * @param finalDelay1

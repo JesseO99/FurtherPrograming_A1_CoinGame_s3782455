@@ -41,5 +41,17 @@ public class GameEngineCallbackImpl implements GameEngineCallback
       // TODO: complete this method to log results
    }
 
+@Override
+public void spinnerCoinUpdate(Coin coin, GameEngine engine) {
+	// TODO Auto-generated method stub
+	
+}
+
+@Override
+public void spinnerResult(CoinPair coinPair, GameEngine engine) {
+	// TODO Auto-generated method stub
+	
+}
+
    // TODO: implement rest of interface
 }

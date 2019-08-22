@@ -17,7 +17,16 @@ public enum BetType
          @Override
          public void applyWinLoss(Player player, CoinPair spinnerResult)
          {
-            // TODO implementation
+        	 if(player.getResult().getCoin1().equals(spinnerResult.getCoin1()))
+        	 {
+        		 player.setPoints(player.getPoints() + player.getBet());
+        	 }
+        	 else
+        	 {
+        		 player.setPoints(player.getPoints() - player.getBet());
+        	 }
+        	 player.resetBet();
+        	 player.setBetType(NO_BET);
          }
       },
       COIN2
@@ -26,8 +35,17 @@ public enum BetType
 		@Override
 		public void applyWinLoss(Player player, CoinPair spinnerResult) 
 		{
-			// TODO Auto-generated method stub
-			
+			 if(player.getResult().getCoin2().equals(spinnerResult.getCoin1()))
+        	 {
+        		 player.setPoints(player.getPoints() + player.getBet());
+        	 }
+        	 else
+        	 {
+        		 player.setPoints(player.getPoints() - player.getBet());
+        	 }
+        	 player.resetBet();
+        	 player.setBetType(NO_BET);
+
 		}
     	  
       },
@@ -37,8 +55,16 @@ public enum BetType
 		@Override
 		public void applyWinLoss(Player player, CoinPair spinnerResult) 
 		{
-			// TODO Auto-generated method stub
-			
+			if(player.getResult().equals(spinnerResult))
+       	 {
+       		 player.setPoints(player.getPoints() + player.getBet());
+       	 }
+       	 else
+       	 {
+       		 player.setPoints(player.getPoints() - player.getBet());
+       	 }
+       	 player.resetBet();
+       	 player.setBetType(NO_BET);
 		}
     	  
     	  
@@ -49,8 +75,7 @@ public enum BetType
 		@Override
 		public void applyWinLoss(Player player, CoinPair spinnerResult) 
 		{
-			// TODO Auto-generated method stub
-			
+			//This method doesn't need to do anything
 		}
     	  
       };
