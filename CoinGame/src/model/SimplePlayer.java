@@ -113,5 +113,13 @@ public class SimplePlayer implements Player
 		this.coinPair = coinPair;
 
 	}
+	
+	@Override
+	public String toString()
+	{
+		return String.format("Player: id=%s, name=%s, bet=%s, betType=%s,\n"
+				+ "+ points=%s, Result .. %s\n", 
+				playerId, playerName, bet, betType, points, coinPair.toString());
+	}
 
 }

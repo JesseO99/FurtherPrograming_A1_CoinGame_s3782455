@@ -42,6 +42,7 @@ public class GameEngineImpl implements GameEngine
 		CoinImpl coin2 = new CoinImpl(2);
 		CoinPair coinPair = new CoinPairImpl(coin1, coin2);
 		flipCoin(initialDelay1, finalDelay1, delayIncrement1, coinPair,null);
+		applyBetResults(coinPair);
 		for(GameEngineCallback gameEngineCallback: gameEngineCallbacks)
 		{
 			gameEngineCallback.spinnerResult( coinPair, this);
@@ -112,6 +113,7 @@ public class GameEngineImpl implements GameEngine
 	{
 		for(Player player: players)
 		{
+			System.out.println(player.getPlayerName());
 			player.getBetType().applyWinLoss(player, spinnerResult);
 		}
  

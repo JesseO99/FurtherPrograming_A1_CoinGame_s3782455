@@ -25,8 +25,7 @@ public enum BetType
         	 {
         		 player.setPoints(player.getPoints() - player.getBet());
         	 }
-        	 player.resetBet();
-        	 player.setBetType(NO_BET);
+
          }
       },
       COIN2
@@ -43,8 +42,6 @@ public enum BetType
         	 {
         		 player.setPoints(player.getPoints() - player.getBet());
         	 }
-        	 player.resetBet();
-        	 player.setBetType(NO_BET);
 
 		}
     	  
@@ -63,8 +60,6 @@ public enum BetType
        	 {
        		 player.setPoints(player.getPoints() - player.getBet());
        	 }
-       	 player.resetBet();
-       	 player.setBetType(NO_BET);
 		}
     	  
     	  

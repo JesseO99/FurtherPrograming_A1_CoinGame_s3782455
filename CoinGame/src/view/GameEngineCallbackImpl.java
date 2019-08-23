@@ -1,5 +1,6 @@
 package view;
 
+import java.util.Collection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -30,28 +31,35 @@ public class GameEngineCallbackImpl implements GameEngineCallback
    public void playerCoinUpdate(Player player, Coin coin, GameEngine engine)
    {
       // intermediate results logged at Level.FINE
-      logger.log(Level.FINE, "Intermediate data to log .. String.format() is good here!");
+      logger.log(Level.FINE, String.format("%s coin %s flipped to %s", player.getPlayerName(), coin.getNumber(), coin.getFace()));
       // TODO: complete this method to log intermediate results
    }
 
    public void playerResult(Player player, CoinPair coinPair, GameEngine engine)
    {
       // final results logged at Level.INFO
-      logger.log(Level.INFO, "Result data to log .. String.format() is good here!");
+      logger.log(Level.INFO, String.format("%s, final result=Coin 1: %s, Coin 2: %s", player.getPlayerName(), coinPair.getCoin1().getFace(), coinPair.getCoin2().getFace()));
       // TODO: complete this method to log results
    }
 
-@Override
-public void spinnerCoinUpdate(Coin coin, GameEngine engine) {
-	// TODO Auto-generated method stub
-	
-}
+   @Override
+   public void spinnerCoinUpdate(Coin coin, GameEngine engine) 
+   {
+	   // TODO Auto-generated method stub
+	   logger.log(Level.FINE, String.format("Spinner coin %s flipped to %s", coin.getNumber(), coin.getFace()));
+   }
 
-@Override
-public void spinnerResult(CoinPair coinPair, GameEngine engine) {
-	// TODO Auto-generated method stub
-	
-}
+   @Override
+   public void spinnerResult(CoinPair coinPair, GameEngine engine) 
+   {
+	   logger.log(Level.INFO, String.format("Spinner, final result = Coin 1: %s, Coin 2: %s", coinPair.getCoin1().getFace(), coinPair.getCoin2().getFace()));
+	  StringBuilder finalPlayerResults = new StringBuilder("Final Player results\n");
+	  for(Player player:engine.getAllPlayers())
+	  {
+		  finalPlayerResults.append(player.toString());
+	  }
+	   logger.log(Level.INFO, finalPlayerResults.toString());
+   }
 
    // TODO: implement rest of interface
 }
