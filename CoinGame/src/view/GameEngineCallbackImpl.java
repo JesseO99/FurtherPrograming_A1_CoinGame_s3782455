@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import model.util.GeUtil;
 import model.interfaces.Coin;
 import model.interfaces.CoinPair;
 import model.interfaces.GameEngine;
@@ -31,14 +32,14 @@ public class GameEngineCallbackImpl implements GameEngineCallback
    public void playerCoinUpdate(Player player, Coin coin, GameEngine engine)
    {
       // intermediate results logged at Level.FINE
-      logger.log(Level.FINE, String.format("%s coin %s flipped to %s", player.getPlayerName(), coin.getNumber(), coin.getFace().toString()));
+      logger.log(Level.FINE, String.format("%s coin %s flipped to %s", player.getPlayerName(), coin.getNumber(), GeUtil.coinFaceToString(coin)));
       // TODO: complete this method to log intermediate results
    }
 
    public void playerResult(Player player, CoinPair coinPair, GameEngine engine)
    {
       // final results logged at Level.INFO
-      logger.log(Level.INFO, String.format("%s, final result=Coin 1: %s, Coin 2: %s", player.getPlayerName(), coinPair.getCoin1().getFace(), coinPair.getCoin2().getFace()));
+      logger.log(Level.INFO, String.format("%s, final result=Coin 1: %s, Coin 2: %s", player.getPlayerName(), GeUtil.coinFaceToString(coinPair.getCoin1()), GeUtil.coinFaceToString(coinPair.getCoin2())));
       // TODO: complete this method to log results
    }
 
@@ -46,13 +47,13 @@ public class GameEngineCallbackImpl implements GameEngineCallback
    public void spinnerCoinUpdate(Coin coin, GameEngine engine) 
    {
 	   // TODO Auto-generated method stub
-	   logger.log(Level.FINE, String.format("Spinner coin %s flipped to %s", coin.getNumber(), coin.getFace()));
+	   logger.log(Level.FINE, String.format("Spinner coin %s flipped to %s", coin.getNumber(), GeUtil.coinFaceToString(coin)));
    }
 
    @Override
    public void spinnerResult(CoinPair coinPair, GameEngine engine) 
    {
-	   logger.log(Level.INFO, String.format("Spinner, final result = Coin 1: %s, Coin 2: %s", coinPair.getCoin1().getFace(), coinPair.getCoin2().getFace()));
+	   logger.log(Level.INFO, String.format("Spinner, final result = Coin 1: %s, Coin 2: %s", GeUtil.coinFaceToString(coinPair.getCoin1()),GeUtil.coinFaceToString(coinPair.getCoin2())));
 	  StringBuilder finalPlayerResults = new StringBuilder("Final Player results\n");
 	  for(Player player:engine.getAllPlayers())
 	  {

@@ -68,44 +68,38 @@ public class GameEngineImpl implements GameEngine
 	
 	private void flipCoin(int delay, int finalDelay, int delayIncrement, CoinPair coinPair,Player player)
 	{
-		try
+		if(delay <= finalDelay)
 		{
-			if(delay <= finalDelay)
+			try
 			{
 				Thread.sleep(delay);
-				coinPair.getCoin1().flip();
-				for(GameEngineCallback gameEngineCallback: gameEngineCallbacks)
-				{
-					if(player != null)
-					{
-						gameEngineCallback.playerCoinUpdate(player, coinPair.getCoin1(), this);
-					}
-					else
-					{
-						gameEngineCallback.spinnerCoinUpdate(coinPair.getCoin1(), this);
-					}
-				}
-				coinPair.getCoin2().flip();
-				for(GameEngineCallback gameEngineCallback: gameEngineCallbacks)
-				{
-					if(player != null)
-					{
-						gameEngineCallback.playerCoinUpdate(player, coinPair.getCoin2(), this);
-					}
-					else
-					{
-						gameEngineCallback.spinnerCoinUpdate(coinPair.getCoin2(), this);
-					}
-				}
-				delay += delayIncrement;
-				flipCoin(delay, finalDelay, delayIncrement, coinPair, player);
+			}
+			catch(InterruptedException e)
+			{
+			}
+
+			coinPair.getCoin1().flip();
+			coinFlipUpdateCallback(player, coinPair.getCoin1());
+			coinPair.getCoin2().flip();
+			coinFlipUpdateCallback(player, coinPair.getCoin2());
+			delay += delayIncrement;
+			flipCoin(delay, finalDelay, delayIncrement, coinPair, player);
+		}
+	}
+	
+	private void coinFlipUpdateCallback(Player player, Coin coin)
+	{
+		for(GameEngineCallback gameEngineCallback: gameEngineCallbacks)//This can be reduced to another private method!!!
+		{
+			if(player != null)
+			{
+				gameEngineCallback.playerCoinUpdate(player, coin, this);
+			}
+			else
+			{
+				gameEngineCallback.spinnerCoinUpdate(coin, this);
 			}
 		}
-		catch(InterruptedException e)
-		{
-			throw new IllegalArgumentException();
-		}
-
 	}
 
 	@Override
@@ -167,6 +161,7 @@ public class GameEngineImpl implements GameEngine
 
 	@Override
 	public boolean placeBet(Player player, int bet, BetType betType) //Places the players bet
+
 	{
 		if(player.setBet(bet)&& betType != BetType.NO_BET)
 		{

@@ -7,20 +7,5 @@ package model.enumeration;
  */
 public enum CoinFace
 {
-   HEADS
-   {
-	   @Override
-	   public String toString()
-	   {
-		   return "Heads";
-	   }
-	   
-   }, 
-   TAILS
-   {
-	   public String toString()
-	   {
-		   return "Tails";
-	   }
-   };
+   HEADS, TAILS;
 }
