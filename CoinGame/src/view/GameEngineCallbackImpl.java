@@ -31,7 +31,7 @@ public class GameEngineCallbackImpl implements GameEngineCallback
    public void playerCoinUpdate(Player player, Coin coin, GameEngine engine)
    {
       // intermediate results logged at Level.FINE
-      logger.log(Level.FINE, String.format("%s coin %s flipped to %s", player.getPlayerName(), coin.getNumber(), coin.getFace()));
+      logger.log(Level.FINE, String.format("%s coin %s flipped to %s", player.getPlayerName(), coin.getNumber(), coin.getFace().toString()));
       // TODO: complete this method to log intermediate results
    }
 

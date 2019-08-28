@@ -11,7 +11,7 @@ public class SimplePlayer implements Player
 	private String playerName;
 	private int points;
 	private int bet;
-	private BetType betType;
+	private BetType betType = BetType.NO_BET;
 	private CoinPair coinPair;
 	public SimplePlayer(String playerId, String playerName, int initialPoints) 
 	{
@@ -118,7 +118,7 @@ public class SimplePlayer implements Player
 	public String toString()
 	{
 		return String.format("Player: id=%s, name=%s, bet=%s, betType=%s,\n"
-				+ "+ points=%s, Result .. %s\n", 
+				+ "points=%s, Result .. %s\n", 
 				playerId, playerName, bet, betType, points, coinPair.toString());
 	}
 

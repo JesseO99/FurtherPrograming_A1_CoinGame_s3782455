@@ -113,7 +113,6 @@ public class GameEngineImpl implements GameEngine
 	{
 		for(Player player: players)
 		{
-			System.out.println(player.getPlayerName());
 			player.getBetType().applyWinLoss(player, spinnerResult);
 		}
  
